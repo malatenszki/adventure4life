@@ -24,13 +24,13 @@
 @media #{$Normal} {
   /* #header */
   .region-branding {
-    @include span(6);
+    @include span(24);
   }
   .region-navigation {
-    @include span(last 18);
+    @include span(24);
   }
   .region-user-navigation {
-    @include span(last 18);
+    @include span(24);
   }
   /* #preface */
   .region-preface-first {

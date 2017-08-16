@@ -73,38 +73,48 @@
  */
 #}
 
-<div id="page" class="{{ page_classes }}">
+<div id="fullpage" class="{{ page_classes }}">
 
-    <header id="header-top">
-        <div class="container">
-            {% if page.branding %}
-                {{ page.branding }}
-            {% endif %}
+    <div class="section" data-anchor="1">
+      <header id="header-top">
+          <div class="container">
+              {% if page.branding %}
+                  {{ page.branding }}
+              {% endif %}
+          </div>
+      </header>
+    </div>
 
-            {% if page.navigation %}
-                {{ page.navigation }}
-            {% endif %}
 
-            {% if page.user_navigation %}
-                {{ page.user_navigation }}
-            {% endif %}
-        </div>
-    </header>
+    {% if page.header or page.navigation or page.user_navigation %}
+      <div class="section" data-anchor="2">
+          <section id="header">
+              <div class="container">
+                {{ page.header }}
 
-    {% if page.header %}
-        <section id="header">
-            <div class="container">{{ page.header }}</div>
-        </section>
+              {% if page.navigation %}
+                  {{ page.navigation }}
+              {% endif %}
+
+              {% if page.user_navigation %}
+                  {{ page.user_navigation }}
+              {% endif %}
+            </div>
+          </section>
+      </div>
     {% endif %}
 
     {% if page.highlighted %}
+      <div class="section" data-anchor="3">
         <section id="highlighted">
             <div class="container">{{ page.highlighted }}</div>
         </section>
+      </div>
     {% endif %}
 
 
     {% if page.preface_first or page.preface_second or page.preface_third %}
+      <div class="section"  data-anchor="4">
         <section id="preface">
             <div class="container">
                 {% if page.preface_first %}
@@ -123,9 +133,11 @@
                 {% endif %}
             </div>
         </section>
+      </div>
     {% endif %}
 
-    <section id="content">
+  <div class="section">
+      <section id="content" data-anchor="5">
         <div class="{{ region_classes.main }} container">
             {% if page.content %}
                 {{ page.content }}
@@ -139,9 +151,18 @@
                 {{ page.sidebar_second }}
             {% endif %}
         </div>
-    </section>
+      </section>
+    </div>
+    <div class="section"  data-anchor="6">
+      <div class="slide"><h1 style="text-align:center; color:white;">Slide 1</h1></div>
+      <div class="slide"><h1 style="text-align:center; color:white;">Slide 2</h1></div>
+      <div class="slide"><h1 style="text-align:center; color:white;">Slide 3</h1></div>
+      <div class="slide"><h1 style="text-align:center; color:white;">Slide 4</h1></div>
+    </div>
+
 
     {% if page.postfix_first or page.postfix_second or page.postfix_third %}
+      <div class="section"  data-anchor="7">
         <section id="postfix">
             <div class="container">
                 {% if page.postfix_first %}
@@ -157,8 +178,10 @@
                 {% endif %}
             </div>
         </section>
+      </div>
     {% endif %}
 
+  <div class="section"  data-anchor="8">
     {% if page.footer_first or page.footer_second or page.footer_third  %}
         <footer id="footer">
             <div role="contentinfo" class="{{ region_classes.footer }} container">
@@ -193,5 +216,5 @@
             </div>
         </section>
     {% endif %}
-
+  </div>
 </div>

@@ -8,9 +8,13 @@ adventure4life:
       css/adventure4life.css: 'scss/adventure4life.scss'
   version: VERSION
   js:
+    dist/jquery.fullpage.min.js: {}
+    dist/jquery.easings.min.js: {}
+    dist/particles/particles.js: {}
     js/adventure4life.js: {}
   css:
     theme:
+      dist/jquery.fullpage.min.css: {}
       css/adventure4life.css: {}
     layout:
       css/layout/default-layout.css: {}

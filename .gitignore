@@ -6,7 +6,6 @@
 /libraries/
 /sass_imports/
 .remote-sync.json
-/dist
 /dev-css
 /css/development.css
 .idea
