@@ -1,0 +1,13 @@
+{%
+  set adventure4life_block = adventure4life_block ?: ('paragraph-' ~ paragraph.bundle ~ (view_mode != 'default' ? '-' ~ view_mode))|clean_class
+%}
+{%
+set classes = [
+  adventure4life_block
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

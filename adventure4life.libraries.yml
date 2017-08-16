@@ -1,0 +1,24 @@
+adventure4life:
+  adventure4life:
+    allow_clone_for_subtheme: true
+    allow_enable_disable: true
+    title: 'Default library for the adventure4life theme'
+    description: 'Default Starterkit theme library description.'
+    scss:
+      css/adventure4life.css: 'scss/adventure4life.scss'
+  version: VERSION
+  js:
+    js/adventure4life.js: {}
+  css:
+    theme:
+      css/adventure4life.css: {}
+    layout:
+      css/layout/default-layout.css: {}
+    #component:
+      #css/components/component.css: {}
+  dependencies:
+    - core/jquery
+development:
+  css:
+    theme:
+      css/development.css: {}

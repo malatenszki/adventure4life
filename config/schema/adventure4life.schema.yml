@@ -1,0 +1,5 @@
+# Schema for the configuration files of the adventure4life theme.
+
+adventure4life.settings:
+  type: theme_settings
+  label: 'adventure4life Settings'

@@ -1,0 +1,100 @@
+@import "../../node_modules/susy/sass/susy";
+@import "../variables/breakpoints";
+@import "../variables/susy";
+.container {
+  @include container($container);
+  margin-bottom: gutter();
+  padding: 0 gutter();
+  @media #{$Wide} {
+    padding: 0;
+  }
+}
+
+.region-branding {
+  @include span(14);
+}
+
+.region-navigation {
+  @include span(last 10);
+}
+.region-user-navigation{
+  @include span(24);
+}
+
+@media #{$Normal} {
+  /* #header */
+  .region-branding {
+    @include span(6);
+  }
+  .region-navigation {
+    @include span(last 18);
+  }
+  .region-user-navigation {
+    @include span(last 18);
+  }
+  /* #preface */
+  .region-preface-first {
+    @include span(24);
+  }
+  .region-preface-second {
+    @include span(12);
+  }
+  .region-preface-third {
+    @include span(last 12);
+  }
+  /* #postfix */
+  .region-postfix-first,
+  .region-postfix-second {
+    @include span(8);
+  }
+  .region-postfix-third {
+    @include span(last 8);
+  }
+  /* #footer */
+  .region-footer-first,
+  .region-footer-second {
+    @include span(8);
+  }
+  .region-footer-third {
+    @include span(last 8);
+  }
+  /* footer-bottom */
+  .region-footer-fifth {
+    @include span(12);
+  }
+  .region-footer-sixth {
+    @include span(last 12);
+  }
+  /* #sidebar, content */
+  &.with-sidebar-first {
+    .region-sidebar-first {
+      @include span(6);
+    }
+    .region-content {
+      @include span(last 18);
+      @include pull(6);
+    }
+  }
+  &.with-sidebar-second {
+    .region-content {
+      @include span(18);
+    }
+    .region-sidebar-second {
+      @include span(last 6);
+      overflow: hidden;
+    }
+  }
+  &.with-sidebar-both {
+    .region-sidebar-first {
+      @include span(6);
+      @include pull(18);
+    }
+    .region-content {
+      @include span(12);
+      @include push(6)
+    }
+    .region-sidebar-second {
+      @include span(last 6)
+    }
+  }
+}

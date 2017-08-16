@@ -1,0 +1,11 @@
+{% set adventure4life_block = 'view-' ~ view.storage.id()|clean_class ~ '-' ~ view.current_display|clean_class %}
+{% set adventure4life_element = adventure4life_block ~ '__summary' %}
+<ul class="{{ adventure4life_element }}">
+  {% for row in rows %}
+    <li class="{{ adventure4life_element }}-item"><a href="{{ row.url }}"{{ row.attributes.addClass(adventure4life_element ~ '-item-link', row.active ? 'is-active')|without('href') }}>{{ row.link }}</a>
+      {% if options.count %}
+        <span class="{{ adventure4life_element }}-item-count">({{ row.count }})</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

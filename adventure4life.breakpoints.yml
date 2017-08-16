@@ -1,0 +1,36 @@
+adventure4life.default.all:
+  label: All
+  mediaQuery: 'all and (min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: adventure4life.default
+adventure4life.default.narrow:
+  label: Narrow
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 3
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: adventure4life.default
+adventure4life.default.normal:
+  label: Normal
+  mediaQuery: 'all and (min-width: 1024px)'
+  weight: 4
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: adventure4life.default
+adventure4life.default.wide:
+  label: Wide
+  mediaQuery: 'all and (min-width: 1220px)'
+  weight: 5
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: adventure4life.default

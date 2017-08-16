@@ -1,0 +1,41 @@
+{%
+set adventure4life_block = adventure4life_block ?: ('node-' ~ node.bundle ~ (view_mode != 'default' ? '-' ~ view_mode))|clean_class
+%}
+{%
+set classes = [
+adventure4life_block,
+node.isPromoted() ? adventure4life_block ~ '--promoted',
+node.isSticky() ? adventure4life_block ~ '--sticky',
+not node.isPublished() ? adventure4life_block ~ '--unpublished',
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+    {% block content %}
+        {{ title_prefix }}
+        {% if not page %}
+          <h2{{ title_attributes.addClass(adventure4life_block ~ '__title') }}>
+            <a class="{{ adventure4life_block }}__title-link" href="{{ url }}" rel="bookmark">{{ label }}</a>
+          </h2>
+        {% endif %}
+        {{ title_suffix }}
+
+        {% if display_submitted %}
+          <footer class="{{ adventure4life_block }}__meta">
+            <div{{ author_attributes.addClass(adventure4life_block ~ '__submitted') }}>
+                {{ date }}
+                {{ metadata }}
+            </div>
+          </footer>
+        {% endif %}
+
+      <div{{ content_attributes.addClass(adventure4life_block ~ '__content') }}>
+          {{ content|without('links') }}
+      </div>
+
+        {% if content.links %}
+          <div class="{{ adventure4life_block }}__links">
+              {{ content.links }}
+          </div>
+        {% endif %}
+    {% endblock %}
+</article>

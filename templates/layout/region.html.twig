@@ -1,0 +1,15 @@
+{%
+  set adventure4life_block = 'region-' ~ region|clean_class
+%}
+{%
+  set classes = [
+    adventure4life_block,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+{% endif %}

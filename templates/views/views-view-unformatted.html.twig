@@ -1,0 +1,19 @@
+{% set adventure4life_block = adventure4life_block ?: ('view-' ~ view.storage.id() ~ '-' ~ view.current_display)|clean_class %}
+{% set adventure4life_element = adventure4life_block ~ '__row' %}
+{% if title %}
+<div class="{{ adventure4life_block }}__rows">
+    <h3 class="{{ adventure4life_block }}__rows-title">{{ title }}</h3>
+    {% endif %}
+    {% block content %}
+        {% for row in rows %}
+            {% set row_classes = [
+            default_row_class ? adventure4life_element,
+            ] %}
+            <div{{ row.attributes.addClass(row_classes) }}>
+                {{ row.content }}
+            </div>
+        {% endfor %}
+    {% endblock %}
+    {% if title %}
+</div>
+{% endif %}

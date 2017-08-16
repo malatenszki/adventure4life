@@ -1,0 +1,20 @@
+{% set adventure4life_block = 'view-' ~ view.storage.id()|clean_class ~ '-' ~ view.current_display|clean_class %}
+{% set adventure4life_element = adventure4life_block ~ '__list' %}
+{% if attributes|length -%}
+  <div{{ attributes.addClass(adventure4life_element ~ '-container') }}>
+{% endif %}
+  {% if title %}
+    <h3 class="{{ adventure4life_element }}-title">{{ title }}</h3>
+  {% endif %}
+  {% block content %}
+  <{{ list.type }}{% if list.attributes %}{{ list.attributes.addClass(adventure4life_element) }}{% else %} class="{{ adventure4life_element }}"{% endif %}>
+
+    {% for row in rows %}
+      <li{{ row.attributes.addClass(adventure4life_element ~ '-item') }}>{{ row.content }}</li>
+    {% endfor %}
+
+  </{{ list.type }}>
+  {% endblock %}
+{% if attributes|length -%}
+  </div>
+{% endif %}

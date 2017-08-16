@@ -1,0 +1,12 @@
+{%
+  set adventure4life_block = 'view-' ~ view.storage.id()|clean_class ~ '-' ~ view.current_display|clean_class
+%}
+{%
+  set adventure4life_element = adventure4life_block ~ '__grouping'
+%}
+<div class="{{ adventure4life_element }}">
+  {% block content %}
+    {{ title }}
+    {{ content }}
+  {% endblock %}
+</div>

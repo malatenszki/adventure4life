@@ -1,0 +1,21 @@
+{% set adventure4life_block = 'block block-' ~ id|split('__', 2)|first|clean_class %}
+{% set adventure4life_modifiers = id|split('__')|slice(1) %}
+{%
+  set classes = [
+    adventure4life_block
+  ]
+%}
+{% for modifier in id|split('__')|slice(1) %}
+  {% set classes = classes|merge([adventure4life_block ~ '--' ~ modifier|clean_class]) %}
+{% endfor %}
+{% set content %}{% spaceless %}{{ content }}{% endspaceless %}{% endset %}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes.addClass(adventure4life_block ~ '__title block-title') }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {{ content }}
+  </div>
+{% endif %}
